@@ -15,8 +15,8 @@
 top-modal {
   background-color: var(--secondary-fg-color);
   color: white;
-  /* border-top-right-radius: 10%;
-    border-bottom-right-radius: 10%; */
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
 }
 
 .modal-sample-container {
