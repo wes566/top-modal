@@ -1,11 +1,10 @@
 {
   "name": "top-modal",
-  "version": "3.1.0",
-  "description": "A simple, animating menu button built as a Web Component",
+  "version": "0.0.1",
+  "description": "A simple, top-of-page modal built as a Web Component",
   "keywords": [
     "web component",
-    "hamburger",
-    "menu",
+    "modal",
     "animating",
     "web-component"
   ],
@@ -14,6 +13,7 @@
   "source": "lib/top-modal.ts",
   "types": "dist/esm/top-modal.d.ts",
   "scripts": {
+    "test": "bundlesize",
     "build": "rollup -c && cp ./dist/esm/top-modal.js ./example/top-modal.esm.js && cp ./dist/iife/top-modal.js ./example/top-modal.iife.js",
     "rollup-watch": "rollup -c --watch",
     "serve": "live-server ./example",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.4",
+    "bundlesize": "^0.18.0",
     "live-server": "^1.2.1",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.0.2",
@@ -45,5 +46,11 @@
   "bugs": {
     "url": "https://github.com/wes566/top-modal"
   },
-  "homepage": "https://github.com/wes566/top-modal"
+  "homepage": "https://github.com/wes566/top-modal",
+  "bundlesize": [
+    {
+      "path": "./dist/esm/top-modal.min.js",
+      "maxSize": "4 kB"
+    }
+  ]
 }
