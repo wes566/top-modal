@@ -1,6 +1,6 @@
 {
   "name": "top-modal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple, top-of-page modal built as a Web Component",
   "keywords": [
     "web component",
@@ -13,6 +13,7 @@
   "source": "lib/top-modal.ts",
   "types": "dist/esm/top-modal.d.ts",
   "scripts": {
+    "release": "standard-version",
     "test": "bundlesize",
     "build": "rollup -c && cp ./dist/esm/top-modal.js ./example/top-modal.esm.js",
     "rollup-watch": "rollup -c --watch",
@@ -34,6 +35,7 @@
     "rollup-plugin-string": "^3.0.0",
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.1",
+    "standard-version": "^8.0.2",
     "typescript": "^3.9.6"
   },
   "repository": {
