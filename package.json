@@ -1,0 +1,49 @@
+{
+  "name": "wc-menu-button",
+  "version": "3.1.0",
+  "description": "A simple, animating menu button built as a Web Component",
+  "keywords": [
+    "web component",
+    "hamburger",
+    "menu",
+    "animating",
+    "web-component"
+  ],
+  "module": "dist/esm/wc-menu-button.js",
+  "main": "dist/esm/wc-menu-button.js",
+  "source": "lib/wc-menu-button.ts",
+  "types": "dist/esm/wc-menu-button.d.ts",
+  "scripts": {
+    "build": "rollup -c && cp ./dist/esm/wc-menu-button.js ./example/wc-menu-button.esm.js && cp ./dist/iife/wc-menu-button.js ./example/wc-menu-button.iife.js",
+    "rollup-watch": "rollup -c --watch",
+    "serve": "live-server ./example",
+    "copy-watch-esm": "onchange -v \"dist/esm/wc-menu-button.js\" -- cp ./dist/esm/wc-menu-button.js ./example/wc-menu-button.esm.js",
+    "copy-watch-iife": "onchange -v \"dist/iife/wc-menu-button.js\" -- cp ./dist/iife/wc-menu-button.js ./example/wc-menu-button.iife.js",
+    "start": "npm-run-all --parallel rollup-watch serve copy-watch-esm copy-watch-iife",
+    "clean": "rm -rf dist",
+    "prepare": "npm run build",
+    "gzip-check": "npx gzip-size-cli dist/esm/wc-menu-button.min.js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.4",
+    "live-server": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.0.2",
+    "rollup": "^2.21.0",
+    "rollup-plugin-postcss": "^3.1.2",
+    "rollup-plugin-string": "^3.0.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "typescript": "^3.9.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wes566/wc-menu-button"
+  },
+  "author": "Wes Peter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wes566/wc-menu-button"
+  },
+  "homepage": "https://github.com/wes566/wc-menu-button"
+}
