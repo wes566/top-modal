@@ -1,7 +1,5 @@
 ![Build](https://github.com/wes566/top-modal/workflows/Build/badge.svg) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/top-modal) [![npm](https://img.shields.io/npm/v/top-modal.svg)](https://npmjs.org/package/top-modal) [![Dependencies Status](https://david-dm.org/wes566/top-modal/status.svg)](https://david-dm.org/wes566/top-modal)
 
-[![CircleCI](https://circleci.com/gh/wes566/top-modal.svg?style=svg)](https://circleci.com/gh/wes566/top-modal)
-
 # top-modal
 
 A simple, top-of-page modal built as a Web Component
