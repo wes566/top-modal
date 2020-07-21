@@ -14,12 +14,11 @@
   "types": "dist/esm/top-modal.d.ts",
   "scripts": {
     "test": "bundlesize",
-    "build": "rollup -c && cp ./dist/esm/top-modal.js ./example/top-modal.esm.js && cp ./dist/iife/top-modal.js ./example/top-modal.iife.js",
+    "build": "rollup -c && cp ./dist/esm/top-modal.js ./example/top-modal.esm.js",
     "rollup-watch": "rollup -c --watch",
     "serve": "live-server ./example",
     "copy-watch-esm": "onchange -v \"dist/esm/top-modal.js\" -- cp ./dist/esm/top-modal.js ./example/top-modal.esm.js",
-    "copy-watch-iife": "onchange -v \"dist/iife/top-modal.js\" -- cp ./dist/iife/top-modal.js ./example/top-modal.iife.js",
-    "start": "npm-run-all --parallel rollup-watch serve copy-watch-esm copy-watch-iife",
+    "start": "npm-run-all --parallel rollup-watch serve copy-watch-esm",
     "clean": "rm -rf dist",
     "prepare": "npm run build",
     "gzip-check": "npx gzip-size-cli dist/esm/top-modal.min.js"

@@ -1,39 +1,37 @@
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/side-drawer) [![npm](https://img.shields.io/npm/v/side-drawer.svg)](https://npmjs.org/package/side-drawer)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/top-modal) [![npm](https://img.shields.io/npm/v/top-modal.svg)](https://npmjs.org/package/top-modal)
 
-[![CircleCI](https://circleci.com/gh/wes566/side-drawer.svg?style=svg)](https://circleci.com/gh/wes566/side-drawer)
+[![CircleCI](https://circleci.com/gh/wes566/top-modal.svg?style=svg)](https://circleci.com/gh/wes566/top-modal)
 
-# side-drawer
+# top-modal
 
-A simple, animating side drawer built as a Web Component
+A simple, top-of-page modal built as a Web Component
 
-![side-drawer demo](demo.gif)
-
-## [Demo](https://side-drawer.netlify.com/)
+## [Demo](https://top-modal.netlify.com/)
 
 ## Installation
 
-You can integrate side-drawer via `<script>` tag or via NPM.
+You can integrate top-modal via `<script>` tag or via NPM.
 
 ### Via `<script>` tag
 
 In the `<head>` of your index.html put a script tag like this:
 
 ```html
-<script type="module" src="https://cdn.skypack.dev/side-drawer"></script>
+<script type="module" src="https://cdn.skypack.dev/top-modal"></script>
 ```
 
-Now you can use the `side-drawer` element anywhere in your html, JSX, template, etc.
+Now you can use the `top-modal` element anywhere in your html, JSX, template, etc.
 
 ### Via NPM
 
 ```bash
-npm install side-drawer --save
+npm install top-modal --save
 ```
 
 And then you need to import the module before you can use it in your html/jsx/template:
 
 ```js
-import "side-drawer";
+import "top-modal";
 ```
 
 ## Web Component Browser Support
@@ -45,53 +43,53 @@ This web component uses [HTML templates](https://caniuse.com/#feat=template), th
 ### Attributes/Properties
 
 - `open`
-  - Add this attribute to open the drawer.
-    - Example: `<side-drawer open></side-drawer>`
-  - Set the property in Javascript to imperatively toggle the drawer
-    - Example: `drawer.open = true`
+  - Add this attribute to open the modal.
+    - Example: `<top-modal open></top-modal>`
+  - Set the property in Javascript to imperatively toggle the modal
+    - Example: `modal.open = true`
   - In (p)react you might need to set undefined in your JSX (since false !== undefined for html attribute existence)
-    - Example: `<side-drawer open={this.state.isDrawerOpen || undefined}></side-drawer>`
+    - Example: `<top-modal open={this.state.isModalOpen || undefined}></top-modal>`
 
 ### Events
 
 - `open`
-  - Raised when the drawer is opened.
-  - Example: `drawer.addEventListener("open", handleOpen())`
+  - Raised when the modal is opened.
+  - Example: `modal.addEventListener("open", handleOpen())`
   - When subscribing in html listen for `onopen`
-    - Ex: `<side-drawer onopen="handleOpen()">`
+    - Ex: `<top-modal onopen="handleOpen()">`
 - `close`
-  -Raised when the drawer is closed.
-  - Example: `drawer.addEventListener("close", handleClose())`
+  -Raised when the modal is closed.
+  - Example: `modal.addEventListener("close", handleClose())`
   - When subscribing in html listen for `onclose`
-    - Ex: `<side-drawer onclose="handleClose()">`
+    - Ex: `<top-modal onclose="handleClose()">`
 
 ### Styling
 
-You can style the side-drawer element as you would any regular element, in CSS. A list of supported CSS properties are below, along with the default values.
+You can style the top-modal element as you would any regular element, in CSS. A list of supported CSS properties are below, along with the default values.
 
 ```css
-side-drawer {
+top-modal {
   background-color: #ffffff;
   color: inherit;
-  width: 350px;
-  max-width: 75vw;
-  border-top-right-radius: 0;
+  width: 100vw;
+  max-width: 800px;
+  border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 ```
 
 You can set a backdrop filter using the following CSS variable.
 
-- `--side-drawer-backdrop-filter`
-  - Sets the backdrop-filter for both the drawer and the overlay that appears to the right of the drawer (when it's open).
+- `--top-modal-backdrop-filter`
+  - Sets the backdrop-filter for both the modal and the overlay that appears to the bottom of the modal (when it's open).
   - Default is `none`
 
-You can customize the overlay that appears to the right of the drawer (when it's open) by setting one of the following CSS variables.
+You can customize the overlay that appears to the bottom of the modal (when it's open) by setting one of the following CSS variables.
 
-- `--side-drawer-overlay-transition`
+- `--top-modal-overlay-transition`
   - Sets the transition
   - Default is `opacity 0.25s ease-in-out 0.25s`
-- `--side-drawer-overlay-opacity`
+- `--top-modal-overlay-opacity`
   - Sets the opacity of the overlay
   - Default is `0.7`
 
