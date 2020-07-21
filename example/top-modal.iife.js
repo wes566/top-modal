@@ -75,7 +75,7 @@ var TopModal = (function (exports) {
       // private _bodyPosition: string | null | undefined;
       attributeChangedCallback(_name, _oldValue, _newValue) {
           if (_name === "open") {
-              // When the drawer is closed, update keyboard/screen reader behavior.
+              // When the modal is closed, update keyboard/screen reader behavior.
               if (!this.open) {
                   this.setAttribute("tabindex", "-1");
                   this.setAttribute("aria-disabled", "true");
@@ -97,7 +97,7 @@ var TopModal = (function (exports) {
                       preventScroll: true,
                   });
                   document.addEventListener("keyup", this.handleKeyUp);
-                  // to prevent body behind drawer from scrolling you need
+                  // to prevent body behind modal from scrolling you need
                   // to set overflow to hidden and position to fixed (for iOS)
                   // TODO: this is too buggy
                   // this._bodyOverflow = document.body.style.overflow;

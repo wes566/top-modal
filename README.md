@@ -1,44 +1,39 @@
-![Build](https://github.com/wes566/wc-menu-button/workflows/Build/badge.svg) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/wc-menu-button) [![npm](https://img.shields.io/npm/v/wc-menu-button.svg)](https://npmjs.org/package/wc-menu-button) [![Dependencies Status](https://david-dm.org/wes566/wc-menu-button/status.svg)](https://david-dm.org/wes566/wc-menu-button)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/side-drawer) [![npm](https://img.shields.io/npm/v/side-drawer.svg)](https://npmjs.org/package/side-drawer)
 
-# wc-menu-button
+[![CircleCI](https://circleci.com/gh/wes566/side-drawer.svg?style=svg)](https://circleci.com/gh/wes566/side-drawer)
+
+# side-drawer
 
 A simple, animating side drawer built as a Web Component
 
-![wc-menu-button demo](demo.gif)
+![side-drawer demo](demo.gif)
 
-## [Demo](https://wc-menu-button.netlify.com/)
+## [Demo](https://side-drawer.netlify.com/)
 
 ## Installation
 
-You can integrate wc-menu-button via `<script>` tag or via NPM.
+You can integrate side-drawer via `<script>` tag or via NPM.
 
 ### Via `<script>` tag
 
 In the `<head>` of your index.html put a script tag like this:
 
 ```html
-<script
-  type="module"
-  src="https://unpkg.com/wc-menu-button/dist/esm/wc-menu-button.min.js"
-></script>
-<script
-  nomodule
-  src="https://unpkg.com/wc-menu-button/dist/iife/wc-menu-button.min.js"
-></script>
+<script type="module" src="https://cdn.skypack.dev/side-drawer"></script>
 ```
 
-Now you can use the `wc-menu-button` element anywhere in your html, JSX, template, etc.
+Now you can use the `side-drawer` element anywhere in your html, JSX, template, etc.
 
 ### Via NPM
 
 ```bash
-npm install wc-menu-button --save
+npm install side-drawer --save
 ```
 
 And then you need to import the module before you can use it in your html/jsx/template:
 
 ```js
-import "wc-menu-button";
+import "side-drawer";
 ```
 
 ## Web Component Browser Support
@@ -50,49 +45,55 @@ This web component uses [HTML templates](https://caniuse.com/#feat=template), th
 ### Attributes/Properties
 
 - `open`
-  - Add this attribute to put the menu button in the "open" state.
-    - Example: `<wc-menu-button open></wc-menu-button>`
+  - Add this attribute to open the drawer.
+    - Example: `<side-drawer open></side-drawer>`
   - Set the property in Javascript to imperatively toggle the drawer
     - Example: `drawer.open = true`
   - In (p)react you might need to set undefined in your JSX (since false !== undefined for html attribute existence)
-    - Example: `<wc-menu-button open={this.state.isMenuOpen || undefined}></wc-menu-button>`
+    - Example: `<side-drawer open={this.state.isDrawerOpen || undefined}></side-drawer>`
 
 ### Events
 
-- `opened`
-  - Raised when the menu button changes to the "open" state.
-  - Example: `menu.addEventListener("opened", handleOpen())`
-  - When subscribing in html listen for `onopened`
-    - Ex: `<wc-menu-button onopened="handleOpen()">`
-- `closed`
-  - Raised when the menu button changes to the not "open" state.
-  - Example: `menu.addEventListener("closed", handleClose())`
-  - When subscribing in html listen for `onclosed`
-    - Ex: `<wc-menu-button onclosed="handleClose()">`
+- `open`
+  - Raised when the drawer is opened.
+  - Example: `drawer.addEventListener("open", handleOpen())`
+  - When subscribing in html listen for `onopen`
+    - Ex: `<side-drawer onopen="handleOpen()">`
+- `close`
+  -Raised when the drawer is closed.
+  - Example: `drawer.addEventListener("close", handleClose())`
+  - When subscribing in html listen for `onclose`
+    - Ex: `<side-drawer onclose="handleClose()">`
 
 ### Styling
 
-You can style the wc-menu-button element as you would any regular element, in CSS. A list of supported CSS properties are below, along with the default values.
+You can style the side-drawer element as you would any regular element, in CSS. A list of supported CSS properties are below, along with the default values.
 
 ```css
-:root {
-  /* Menu button color is set with CSS variable */
-  --wc-menu-button-color: #000000;
-
-  /* The default mouse cursor is used by default */
-  --wc-menu-button-cursor: default;
-}
-
-/* You only need to set the width, the height is calculated to maintain proportion */
-wc-menu-button {
-  width: 37px;
-}
-
-/* Set to `1.0` if you do not want any hover opacity effect */
-wc-menu-button:hover {
-  opacity: 0.75;
+side-drawer {
+  background-color: #ffffff;
+  color: inherit;
+  width: 350px;
+  max-width: 75vw;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 ```
+
+You can set a backdrop filter using the following CSS variable.
+
+- `--side-drawer-backdrop-filter`
+  - Sets the backdrop-filter for both the drawer and the overlay that appears to the right of the drawer (when it's open).
+  - Default is `none`
+
+You can customize the overlay that appears to the right of the drawer (when it's open) by setting one of the following CSS variables.
+
+- `--side-drawer-overlay-transition`
+  - Sets the transition
+  - Default is `opacity 0.25s ease-in-out 0.25s`
+- `--side-drawer-overlay-opacity`
+  - Sets the opacity of the overlay
+  - Default is `0.7`
 
 ## Contribute
 
