@@ -104,9 +104,3 @@ npm start
 ```
 
 This will start a live-server on port localhost:8080. Any changes you make to files in lib/ or any changes to example/index.html should get live reloaded.
-
-## Acknowledgements
-
-Thanks to [BrowserStack](https://www.browserstack.com/) for cross browser testing.
-
-[![BrowserStack](./browserstack-logo.png)](https://www.browserstack.com/)

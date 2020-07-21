@@ -7,33 +7,37 @@
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
     />
     <title>
-      wc-menu-button - A simple, animating menu button built as a Web Component
+      top-modal - A simple, top-of-page modal built as a Web Component
     </title>
 
     <!-- I copy the .js file into the example folder so netlify can just publish the example folder -->
-    <script type="module" src="./wc-menu-button.esm.js"></script>
-    <script nomodule src="./wc-menu-button.iife.js"></script>
+    <script type="module" src="./top-modal.esm.js"></script>
+    <script nomodule src="./top-modal.iife.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/wc-menu-button@3.0.1/dist/esm/wc-menu-button.js"
+    ></script>
 
     <link rel="stylesheet" type="text/css" href="./example.css" />
 
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   </head>
 
-  <body>
+  <body onload="handleBodyLoad()">
     <main>
       <section class="hero">
-        <h1>wc-menu-button</h1>
-        <h2>A simple, animating menu web component</h2>
+        <h1>top-modal</h1>
+        <h2>A simple, top-of-page modal built as a Web Component</h2>
         <div class="hero-demo">
-          <wc-menu-button class="big-icon accent-icon"></wc-menu-button>
+          <wc-menu-button id="menuButton"></wc-menu-button>
         </div>
       </section>
 
       <section class="overview">
         <p>
-          This small, simple web component has no dependencies and can be
+          This small, simple, fast web component has no dependencies and can be
           consumed by vanilla JS or any front-end framework. The animations are
-          done via CSS with minimal Javascript.
+          done via CSS transforms with minimal Javascript.
         </p>
         <ul>
           <li>
@@ -44,7 +48,7 @@
                 ></polygon>
               </g>
             </svg>
-            Lightweight (~900 bytes)
+            Lightweight (~1kb gzipped)
           </li>
           <li>
             <svg class="icon-checkmark" width="96" height="23">
@@ -64,7 +68,7 @@
                 ></polygon>
               </g>
             </svg>
-            CSS animated
+            CSS animations
           </li>
           <li>
             <svg class="icon-checkmark" width="96" height="23">
@@ -84,7 +88,7 @@
                 ></polygon>
               </g>
             </svg>
-            Customizeable via CSS
+            Customizable via CSS
           </li>
           <li>
             <svg class="icon-checkmark" width="96" height="23">
@@ -96,11 +100,31 @@
             </svg>
             Minimal Javascript
           </li>
+          <li>
+            <svg class="icon-checkmark" width="96" height="23">
+              <g transform="translate(-219.000000, -351.000000)">
+                <polygon
+                  points="223.777383 359.660353 220.25 356.253668 219 357.402904 223.777383 362 234 352.149199 232.75 351"
+                ></polygon>
+              </g>
+            </svg>
+            Keyboard friendly (ESC to dismiss)
+          </li>
+          <li>
+            <svg class="icon-checkmark" width="96" height="23">
+              <g transform="translate(-219.000000, -351.000000)">
+                <polygon
+                  points="223.777383 359.660353 220.25 356.253668 219 357.402904 223.777383 362 234 352.149199 232.75 351"
+                ></polygon>
+              </g>
+            </svg>
+            Click outside modal to dismiss
+          </li>
         </ul>
       </section>
 
       <section class="hero-cta">
-        <a href="https://github.com/wes566/wc-menu-button">
+        <a href="https://github.com/wes566/top-modal">
           <button class="github-btn">
             <div>Get Started</div>
             <svg
@@ -122,86 +146,46 @@
           </button>
         </a>
       </section>
-
-      <section class="demo-section">
-        <h2>Example Usage</h2>
-        <div class="demo">
-          <h3>Listening to open/close events</h3>
-          <div class="wc-container">
-            <wc-menu-button id="myButton"></wc-menu-button>
-          </div>
-          <div class="code-container">
-            <pre>
-  &lt;wc-menu-button id="myButton"&gt;&lt;/wc-menu-button&gt;
-  ...
-  &lt;script&gt;
-    const myMenuIcon = document.querySelector("#myButton");
-    if (!!myMenuIcon) {
-      myMenuIcon.addEventListener("opened", ev => {
-        console.log("menu was opened");
-      });
-      myMenuIcon.addEventListener("closed", ev => {
-        console.log("menu was closed");
-      });
-    }
-  &lt;/script&gt;
-          </pre
-            >
-          </div>
-        </div>
-        <div class="demo">
-          <h3>Custom color</h3>
-          <div class="wc-container">
-            <wc-menu-button class="demo-color"></wc-menu-button>
-          </div>
-          <div class="code-container">
-            <pre>
-  &lt;style&gt;
-    :root {
-      --wc-menu-button-color: orange;
-    }
-  &lt;/style&gt;
-  ...
-  &lt;wc-menu-button&gt;&lt;/wc-menu-button&gt;
-          </pre
-            >
-          </div>
-        </div>
-        <div class="demo">
-          <h3>Custom size and hover opacity</h3>
-          <div class="wc-container">
-            <wc-menu-button
-              class="demo-size demo-hover-opacity"
-            ></wc-menu-button>
-          </div>
-          <div class="code-container">
-            <pre>
-  &lt;style&gt;
-    wc-menu-button {
-      width: 67px;
-    }
-
-    wc-menu-button:hover {
-      opacity: 1;
-    }
-  &lt;/style&gt;
-  ...
-  &lt;wc-menu-button&gt;&lt;/wc-menu-button&gt;
-          </pre
-            >
-          </div>
-        </div>
-      </section>
     </main>
 
+    <top-modal id="modal"
+      ><div class="modal-sample-container">
+        <div>
+          <div>This is the modal!</div>
+          <div style="padding: 21px 0px;">
+            You can close the modal with the escape key or by clicking/tapping
+            outside the modal.
+          </div>
+          <div style="padding: 21px 0px;">
+            Use your browser dev tools to inspect the CSS and see an example of
+            customizing the modal.
+          </div>
+          <div style="font-size: 16px; margin-top: 21px;">
+            The hamburger menu button that's used to open this modal is the
+            <a href="https://github.com/wes566/wc-menu-button" target="_blank"
+              >wc-menu-button</a
+            >
+          </div>
+        </div>
+        <div style="font-size: 16px;">Hello there &#x1F44B;</div>
+      </div></top-modal
+    >
+
     <script>
-      const myMenuIcon = document.querySelector("#myButton");
-      if (!!myMenuIcon) {
-        myMenuIcon.addEventListener("opened", ev => {
-          console.log("menu was opened");
+      function handleBodyLoad() {
+        const menuButton = document.getElementById("menuButton");
+        const modal = document.querySelector("#modal");
+
+        menuButton.addEventListener("opened", (ev) => {
+          modal.open = true;
         });
-        myMenuIcon.addEventListener("closed", ev => {
-          console.log("menu was closed");
+
+        modal.addEventListener("open", (ev) => {
+          menuButton.open = true;
+        });
+
+        modal.addEventListener("close", (ev) => {
+          menuButton.open = false;
         });
       }
     </script>

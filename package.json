@@ -1,5 +1,5 @@
 {
-  "name": "wc-menu-button",
+  "name": "top-modal",
   "version": "3.1.0",
   "description": "A simple, animating menu button built as a Web Component",
   "keywords": [
@@ -9,20 +9,20 @@
     "animating",
     "web-component"
   ],
-  "module": "dist/esm/wc-menu-button.js",
-  "main": "dist/esm/wc-menu-button.js",
-  "source": "lib/wc-menu-button.ts",
-  "types": "dist/esm/wc-menu-button.d.ts",
+  "module": "dist/esm/top-modal.js",
+  "main": "dist/esm/top-modal.js",
+  "source": "lib/top-modal.ts",
+  "types": "dist/esm/top-modal.d.ts",
   "scripts": {
-    "build": "rollup -c && cp ./dist/esm/wc-menu-button.js ./example/wc-menu-button.esm.js && cp ./dist/iife/wc-menu-button.js ./example/wc-menu-button.iife.js",
+    "build": "rollup -c && cp ./dist/esm/top-modal.js ./example/top-modal.esm.js && cp ./dist/iife/top-modal.js ./example/top-modal.iife.js",
     "rollup-watch": "rollup -c --watch",
     "serve": "live-server ./example",
-    "copy-watch-esm": "onchange -v \"dist/esm/wc-menu-button.js\" -- cp ./dist/esm/wc-menu-button.js ./example/wc-menu-button.esm.js",
-    "copy-watch-iife": "onchange -v \"dist/iife/wc-menu-button.js\" -- cp ./dist/iife/wc-menu-button.js ./example/wc-menu-button.iife.js",
+    "copy-watch-esm": "onchange -v \"dist/esm/top-modal.js\" -- cp ./dist/esm/top-modal.js ./example/top-modal.esm.js",
+    "copy-watch-iife": "onchange -v \"dist/iife/top-modal.js\" -- cp ./dist/iife/top-modal.js ./example/top-modal.iife.js",
     "start": "npm-run-all --parallel rollup-watch serve copy-watch-esm copy-watch-iife",
     "clean": "rm -rf dist",
     "prepare": "npm run build",
-    "gzip-check": "npx gzip-size-cli dist/esm/wc-menu-button.min.js"
+    "gzip-check": "npx gzip-size-cli dist/esm/top-modal.min.js"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.4",
@@ -38,12 +38,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wes566/wc-menu-button"
+    "url": "https://github.com/wes566/top-modal"
   },
   "author": "Wes Peter",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wes566/wc-menu-button"
+    "url": "https://github.com/wes566/top-modal"
   },
-  "homepage": "https://github.com/wes566/wc-menu-button"
+  "homepage": "https://github.com/wes566/top-modal"
 }
