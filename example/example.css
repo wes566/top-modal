@@ -7,6 +7,26 @@
   --secondary-accent-color: #7c64d8;
   --code-bg-color: #64189f22;
   --code-fg-color: #2c2c2c;
+  --wc-menu-button-color: var(--primary-accent-color);
+  /* --top-modal-backdrop-filter: blur(10px); */
+  /* --top-modal-overlay-opacity: 0; */
+}
+
+top-modal {
+  background-color: var(--secondary-fg-color);
+  color: white;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+}
+
+.modal-sample-container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 21px;
+  font-size: 21px;
+  display: flex;
+  flex-direction: column;
 }
 
 html body {
@@ -20,29 +40,10 @@ html body {
   height: 100%;
   background-color: var(--primary-bg-color);
   color: var(--primary-fg-color);
-  overflow-x: hidden;
 }
 
-.accent-icon {
-  --wc-menu-button-color: var(--primary-accent-color);
-}
-
-wc-menu-button.big-icon {
+wc-menu-button {
   width: 60px;
-}
-
-.demo-color {
-  --wc-menu-button-color: orange;
-}
-
-wc-menu-button.demo-size {
-  width: 67px;
-}
-
-@media (hover: hover) {
-  wc-menu-button.demo-hover-opacity:hover {
-    opacity: 1;
-  }
 }
 
 body {
@@ -55,19 +56,6 @@ body {
 main {
   width: 100%;
   max-width: 1280px;
-}
-
-.code-container {
-  background: var(--code-bg-color);
-  color: var(--code-fg-color);
-  overflow-x: scroll;
-  max-width: 600px;
-  border: 1px solid var(--secondary-bg-color);
-}
-
-pre {
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  font-size: 95%;
 }
 
 section {
@@ -170,23 +158,6 @@ ul {
   fill: #00ab47 !important;
   width: 15px;
   height: 11px;
-}
-
-.demo-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 28px 10%;
-  border-top: 2px solid var(--secondary-accent-color);
-}
-
-.demo {
-  padding: 37px 0;
-  width: 100%;
-}
-
-.demo .wc-container {
-  padding: 28px 0;
 }
 
 .github-btn {
